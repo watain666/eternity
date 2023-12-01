@@ -172,7 +172,7 @@ a img {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.92);
+    background-color: rgba(255, 255, 255, 0.90);
 }
 
 .slide {
@@ -323,7 +323,7 @@ section .column img {
 
 .footer {
     background-color: var(--dark);
-    color: rgb(245, 245, 245);
+    /* color: rgb(245, 245, 245); */
 }
 
 .source-love {

@@ -46,6 +46,15 @@
                             height="{{ $img.Height }}"
                             onclick="openSlider();currentSlide({{ (index $row "loopCount") }})"
                             />
+                            {{ with $row.post.Title }}
+                                <figcaption class="center">
+                                    {{/*  <h5>  */}}
+                                        {{ $row.post.Title }}
+                                    {{/*  </h5>  */}}
+                                    {{/*  <p>Title: {{ .Title }}</p>  */}}
+                                    {{/*  <p>Desc: {{ .Date }}</p>  */}}
+                                </figcaption>
+                            {{ end }}
                         </div>
                     </div>
                 {{ end }}
