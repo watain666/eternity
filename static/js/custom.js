@@ -14,5 +14,5 @@ $(document).ready(function() {
 function goBottom() {
     console.log("goBottom clicked")
     console.log($(document).height())
-    $('html, body, .slider').animate({scrollTop: $(document).height() }, 750);
+    $('html, body, .slider').animate({scrollTop: 9999 }, 750);
 }
