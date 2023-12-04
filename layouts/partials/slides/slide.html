@@ -21,6 +21,28 @@
 						</div>
 					{{ end }}
 				{{ end }}
+				<div class="center">
+					<div class="slide-info">
+						<div class="content {{ if not $.disableFullheight }} margin-bottom-50 {{ end }}">
+							{{ if .ctx.Site.Params.MoveIt }}
+								{{ if not .ctx.Params.hideTitle }}
+									<div class="text-center">
+										<a class="a-clean" href="{{ .ctx.Page.RelPermalink }}">
+											<h1>{{ .ctx.Title }}</h1>
+										</a>
+									</div>
+								{{ end }}
+								{{ partial "slides/meta" (dict "imgs" $imgs "ctx" .ctx) }}
+							{{ end }}
+							{{ if not .ctx.Params.hideExif }}
+								{{ with (index $imgs 0).Exif }}
+									{{ partial "helpers/exif.html" . }}
+								{{ end }}
+							{{ end }}
+							{{ .ctx.Content }}
+						</div>
+					</div>
+				</div>
 				<div {{ if .ctx.Params.multipleColumn }} class="columns center" {{ end }}>
 					{{ range $i, $img := $imgs }}
 						{{ if not $.ctx.Site.Params.DisableAlwaysResize }}
@@ -46,29 +68,6 @@
 				{{ if not .ctx.Site.Params.MoveIt }}
 					{{ partial "slides/meta" (dict "imgs" $imgs "ctx" .ctx) }}
 				{{ end }}
-			</div>
-		</div>
-
-		<div class="center">
-			<div class="slide-info">
-				<div class="content {{ if not $.disableFullheight }} margin-bottom-50 {{ end }}">
-					{{ if .ctx.Site.Params.MoveIt }}
-						{{ if not .ctx.Params.hideTitle }}
-							<div class="text-center">
-								<a class="a-clean" href="{{ .ctx.Page.RelPermalink }}">
-									<h1>{{ .ctx.Title }}</h1>
-								</a>
-							</div>
-						{{ end }}
-						{{ partial "slides/meta" (dict "imgs" $imgs "ctx" .ctx) }}
-					{{ end }}
-					{{ if not .ctx.Params.hideExif }}
-						{{ with (index $imgs 0).Exif }}
-							{{ partial "helpers/exif.html" . }}
-						{{ end }}
-					{{ end }}
-					{{ .ctx.Content }}
-				</div>
 			</div>
 		</div>
 	</div>
