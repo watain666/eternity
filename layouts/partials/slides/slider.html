@@ -38,7 +38,7 @@
                     {{ end }}
                     {{ $img = $img.Resize $resizer }}
                     <div class="center">
-                        <div class="image-box {{ if eq ($.scratch.Get "columnsCount") 1 }} alittle {{ end }}">
+                        <div class="image-box has-background-white{{ if eq ($.scratch.Get "columnsCount") 1 }} alittle {{ end }}">
                             <img
                             src="{{ $img.RelPermalink }}"
                             loading="lazy"
@@ -47,12 +47,17 @@
                             onclick="openSlider();currentSlide({{ (index $row "loopCount") }})"
                             />
                             {{ with $row.post.Title }}
-                                <figcaption class="center">
-                                    {{/*  <h5>  */}}
-                                        {{ $row.post.Title }}
-                                    {{/*  </h5>  */}}
-                                    {{/*  <p>Title: {{ .Title }}</p>  */}}
-                                    {{/*  <p>Desc: {{ .Date }}</p>  */}}
+                                <figcaption class="center columns">
+                                    <div class="column is-1"></div>
+                                    <div class="column is-6">
+                                        <h5 class="">
+                                            {{ $row.post.Title }}
+                                        </h5>
+                                    </div>
+                                    <div class="column is-5">
+                                        <button class="right button is-dark is-small"
+                                        onclick="openSlider();currentSlide({{ (index $row "loopCount") }})">READ MORE ＞</button>
+                                    </div>
                                 </figcaption>
                             {{ end }}
                         </div>
