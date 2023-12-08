@@ -144,3 +144,7 @@ function processSwipe(touchStartX, touchEndX, touchStartY, touchEndY) {
         plusSlides(+1);
     }
 }
+
+function goBottom() {
+    $('html, body, .slider').animate({scrollTop: 9999 }, 750);
+}
