@@ -1,8 +1,8 @@
 baseURL: https://eternity.bora.sh # todo: change site url.
 title: Eternity # todo: change site name.
-defaultContentLanguage: 'en'
+defaultContentLanguage: "en"
 theme: eternity
-googleAnalytics: '' # todo: set your analytics id.
+googleAnalytics: "" # todo: set your analytics id.
 
 params:
   image: /images/banner.png
@@ -20,15 +20,15 @@ params:
         default: 2
   socials:
     # todo: add your social accounts.
-    - icon: 'far fa-envelope fa-lg'
-      url: 'mailto:eternity@bora.sh'
+    - icon: "far fa-envelope fa-lg"
+      url: "mailto:eternity@bora.sh"
       landing: true
   # homepage: "/work" # todo: uncomment homepage, homepage link is mostly same with menu.main[0]
   specialPages:
     - work
     - archive
   bypassWelcomePage: false # redirects "/" to "homepage" when it's true.
-  plausible: '' # todo: set your plausible id.
+  plausible: "" # todo: set your plausible id.
   disableWelcomePageBackground: false # disables the background image on the homepage
   disableRadius: false
   moveIt: false # Moves Title and Meta info down, only visible when scroll.
@@ -44,7 +44,7 @@ taxonomies:
   tag: tags
 
 permalinks:
-  work: ":filename/"
+  work: ":contentbasename/"
 
 # todo: uncomment menu.main array after you create contents.
 # menu:
