@@ -28,14 +28,18 @@
 	{{ end }}
 	{{ if not $columnsCount }}
 		<!-- default value doesn't exist in config.yaml -->
-		{{ $columnsCount = 3 }} 
+		{{ $columnsCount = 3 }}
 	{{ end }}
 {{ end }}
 
-{{ $posts := slice }}
-{{ if .ctx.Site.Taxonomies.tags }}
-	{{ $posts := index .ctx.Site.Taxonomies.tags (or .ctx.Params.Title .ctx.Title) }}
-	{{ $posts = sort $posts ".Params.weight" "desc" }}
+{{ $posts := .ctx.Page.Pages }}
+{{ $posts = sort $posts ".Params.weight" "desc" }}
+
+{{ if not $posts }}
+{{/* If .ctx.Page.Pages is empty (e.g., for a general archive where we want all posts), fallback to all regular pages.
+*/}}
+{{ $posts = .ctx.Site.RegularPages }}
+{{ $posts = sort $posts ".Params.weight" "desc" }}
 {{ end }}
 
 {{ $postsCount := len ($posts) }}
